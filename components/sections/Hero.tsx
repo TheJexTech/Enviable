@@ -129,7 +129,12 @@ export function Hero() {
         >
           <div className="relative">
             <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-tr from-primary/40 via-transparent to-sky-brand/30 blur-2xl" />
-            <Portrait priority className="relative shadow-card-hover" />
+            <Portrait
+              priority
+              src="/images/ituma-portrait-secondary.jpg"
+              objectPosition="50% 12%"
+              className="relative shadow-card-hover"
+            />
           </div>
 
           <EcosystemOrbit />

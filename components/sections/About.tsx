@@ -56,12 +56,12 @@ export function About() {
               <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-tr from-primary/30 via-transparent to-sky-brand/25 blur-2xl" />
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-navy shadow-card">
                 <Image
-                  src="/images/ituma-portrait-secondary.jpg"
+                  src="/images/ituma-portrait-primary.jpg"
                   alt="Chukwuemeka Ituma, entrepreneur and Founder of Enviable Group"
                   fill
                   sizes="(max-width: 1024px) 90vw, 45vw"
                   className="object-cover"
-                  style={{ objectPosition: "50% 15%" }}
+                  style={{ objectPosition: "50% 20%" }}
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent" />
                 <div className="pointer-events-none absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-white/15" />
