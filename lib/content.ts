@@ -93,13 +93,6 @@ export type Stat = {
   label: string;
 };
 
-export const heroStats: Stat[] = [
-  { value: 5, suffix: "+", label: "Companies Built" },
-  { value: 1500, suffix: "+", label: "People Empowered" },
-  { value: 12, suffix: "+", label: "Years Leading" },
-  { value: 6, suffix: "", label: "Industries Served" },
-];
-
 /* -------------------------------------------------------------------------- */
 /*  About — founder story                                                      */
 /* -------------------------------------------------------------------------- */
