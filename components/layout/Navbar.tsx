@@ -71,10 +71,10 @@ export function Navbar() {
     >
       <div
         className={cn(
-          "border-b backdrop-blur-xl transition-all duration-500",
+          "transition-all duration-500",
           scrolled || openDropdown
-            ? "border-mist/70 bg-white/90 shadow-soft"
-            : "border-mist/40 bg-white/70",
+            ? "border-b border-white/10 bg-navy/80 backdrop-blur-xl"
+            : "border-b border-transparent bg-transparent",
         )}
       >
         <nav className="container-px flex h-16 items-center justify-between sm:h-20">
@@ -87,10 +87,10 @@ export function Navbar() {
               CI
             </span>
             <span className="hidden flex-col leading-none sm:flex">
-              <span className="font-display text-sm font-semibold text-navy">
+              <span className="font-display text-sm font-semibold text-white">
                 Chukwuemeka Ituma
               </span>
-              <span className="text-[0.65rem] uppercase tracking-[0.2em] text-primary">
+              <span className="text-[0.65rem] uppercase tracking-[0.2em] text-sky-brand">
                 Enviable Group
               </span>
             </span>
@@ -108,8 +108,8 @@ export function Navbar() {
                     className={cn(
                       "rounded-full px-4 py-2 text-sm font-medium transition-colors",
                       active
-                        ? "bg-primary/10 text-primary"
-                        : "text-ink/70 hover:bg-primary/5 hover:text-navy",
+                        ? "bg-white/10 text-white"
+                        : "text-mist/80 hover:bg-white/5 hover:text-white",
                     )}
                   >
                     {item.label}
@@ -134,8 +134,8 @@ export function Navbar() {
                     className={cn(
                       "flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-colors",
                       active || dropdownOpen
-                        ? "bg-primary/10 text-primary"
-                        : "text-ink/70 hover:bg-primary/5 hover:text-navy",
+                        ? "bg-white/10 text-white"
+                        : "text-mist/80 hover:bg-white/5 hover:text-white",
                     )}
                     aria-expanded={dropdownOpen}
                     aria-haspopup="menu"
@@ -159,7 +159,7 @@ export function Navbar() {
                         role="menu"
                         className="absolute left-0 top-full w-72 pt-3"
                       >
-                        <div className="overflow-hidden rounded-2xl border border-mist bg-white p-2 shadow-card">
+                        <div className="glass overflow-hidden rounded-2xl p-2 shadow-card-hover">
                           {item.children.map((child) => (
                             <Link
                               key={child.href + child.label}
@@ -168,14 +168,14 @@ export function Navbar() {
                               className={cn(
                                 "block rounded-xl px-4 py-3 transition-colors",
                                 pathname === child.href
-                                  ? "bg-primary/10"
-                                  : "hover:bg-primary/5",
+                                  ? "bg-white/10"
+                                  : "hover:bg-white/5",
                               )}
                             >
-                              <span className="block text-sm font-semibold text-navy">
+                              <span className="block text-sm font-semibold text-white">
                                 {child.label}
                               </span>
-                              <span className="mt-0.5 block text-xs leading-snug text-ink/60">
+                              <span className="mt-0.5 block text-xs leading-snug text-mist/60">
                                 {child.description}
                               </span>
                             </Link>
@@ -196,7 +196,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-mist bg-white text-navy lg:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white lg:hidden"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
             >
@@ -213,7 +213,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden border-b border-mist bg-white/95 backdrop-blur-xl lg:hidden"
+            className="overflow-hidden border-b border-white/10 bg-navy/95 backdrop-blur-xl lg:hidden"
           >
             <div className="container-px flex flex-col gap-1 py-6">
               {navItems.map((item) => {
@@ -227,8 +227,8 @@ export function Navbar() {
                       className={cn(
                         "rounded-xl px-4 py-3 text-base font-medium transition-colors",
                         active
-                          ? "bg-primary/10 text-primary"
-                          : "text-ink/80 hover:bg-primary/5 hover:text-navy",
+                          ? "bg-white/10 text-white"
+                          : "text-mist/90 hover:bg-white/5 hover:text-white",
                       )}
                     >
                       {item.label}
@@ -250,8 +250,8 @@ export function Navbar() {
                       className={cn(
                         "flex w-full items-center justify-between rounded-xl px-4 py-3 text-base font-medium transition-colors",
                         active
-                          ? "bg-primary/10 text-primary"
-                          : "text-ink/80 hover:bg-primary/5 hover:text-navy",
+                          ? "bg-white/10 text-white"
+                          : "text-mist/90 hover:bg-white/5 hover:text-white",
                       )}
                       aria-expanded={expanded}
                     >
@@ -273,7 +273,7 @@ export function Navbar() {
                           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                           className="overflow-hidden"
                         >
-                          <div className="ml-3 flex flex-col gap-1 border-l border-mist py-1 pl-3">
+                          <div className="ml-3 flex flex-col gap-1 border-l border-white/10 py-1 pl-3">
                             {item.children.map((child) => (
                               <Link
                                 key={child.href + child.label}
@@ -281,8 +281,8 @@ export function Navbar() {
                                 className={cn(
                                   "rounded-lg px-3 py-2.5 text-sm transition-colors",
                                   pathname === child.href
-                                    ? "text-primary"
-                                    : "text-ink/65 hover:text-navy",
+                                    ? "text-white"
+                                    : "text-mist/70 hover:text-white",
                                 )}
                               >
                                 {child.label}

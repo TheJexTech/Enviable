@@ -31,21 +31,21 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate overflow-hidden bg-cloud pt-28 sm:pt-32 lg:pt-40"
+      className="relative isolate overflow-hidden bg-navy pt-28 sm:pt-32 lg:pt-40"
     >
       {/* Background layers */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-primary-50 to-cloud" />
-        <div className="absolute inset-0 bg-grid-navy bg-[size:46px_46px] opacity-30 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy via-[#0d1b3d] to-navy" />
+        <div className="absolute inset-0 bg-grid-navy bg-[size:46px_46px] opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
         <motion.div
           aria-hidden
-          animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.65, 0.4] }}
+          animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -left-24 top-10 h-96 w-96 rounded-full bg-primary/15 blur-[120px]"
+          className="absolute -left-24 top-10 h-96 w-96 rounded-full bg-primary/30 blur-[120px]"
         />
         <motion.div
           aria-hidden
-          animate={{ scale: [1, 1.2, 1], opacity: [0.35, 0.6, 0.35] }}
+          animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
           transition={{
             duration: 14,
             repeat: Infinity,
@@ -60,16 +60,16 @@ export function Hero() {
         {/* Left: copy */}
         <motion.div variants={container} initial="hidden" animate="show">
           <motion.div variants={item}>
-            <span className="eyebrow">
+            <span className="eyebrow-dark">
               <Sparkles className="h-3.5 w-3.5" />
               Founder &amp; Chairman · Enviable Group
             </span>
           </motion.div>
 
-          <h1 className="mt-7 font-display text-4xl font-bold leading-[1.05] tracking-tightest text-navy sm:text-5xl lg:text-[3.75rem]">
+          <h1 className="mt-7 font-display text-4xl font-bold leading-[1.05] tracking-tightest text-white sm:text-5xl lg:text-[3.75rem]">
             {headlineLines.map((line, i) => (
               <motion.span key={line} variants={item} className="block">
-                <span className={i === 2 ? "text-gradient" : undefined}>
+                <span className={i === 2 ? "text-gradient-light" : undefined}>
                   {line}
                 </span>
               </motion.span>
@@ -78,7 +78,7 @@ export function Hero() {
 
           <motion.p
             variants={item}
-            className="mt-7 max-w-xl text-pretty text-base leading-relaxed text-ink/70 sm:text-lg"
+            className="mt-7 max-w-xl text-pretty text-base leading-relaxed text-mist/80 sm:text-lg"
           >
             {site.name} is the Founder and Chairman of Enviable Group, a
             diversified business ecosystem spanning transportation, logistics,
@@ -93,7 +93,7 @@ export function Hero() {
               Discover the Story
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <Link href="/business-investments" className="btn-outline group">
+            <Link href="/business-investments" className="btn-ghost group">
               <Building2 className="h-4 w-4" />
               Business &amp; Investments
             </Link>
@@ -102,18 +102,18 @@ export function Hero() {
           {/* Stats */}
           <motion.dl
             variants={item}
-            className="mt-14 grid max-w-xl grid-cols-2 gap-x-6 gap-y-8 border-t border-mist pt-10 sm:grid-cols-4"
+            className="mt-14 grid max-w-xl grid-cols-2 gap-x-6 gap-y-8 border-t border-white/10 pt-10 sm:grid-cols-4"
           >
             {heroStats.map((stat) => (
               <div key={stat.label}>
-                <dt className="font-display text-3xl font-bold text-navy sm:text-4xl">
+                <dt className="font-display text-3xl font-bold text-white sm:text-4xl">
                   <AnimatedCounter
                     value={stat.value}
                     suffix={stat.suffix}
                     prefix={stat.prefix}
                   />
                 </dt>
-                <dd className="mt-1.5 text-xs leading-snug text-ink/55">
+                <dd className="mt-1.5 text-xs leading-snug text-mist/60">
                   {stat.label}
                 </dd>
               </div>
@@ -158,16 +158,16 @@ export function Hero() {
       </div>
 
       {/* Marquee of industries */}
-      <div className="relative border-y border-mist bg-white/40 py-5">
+      <div className="relative border-y border-white/10 bg-white/[0.02] py-5">
         <div className="mask-fade-edges overflow-hidden">
           <div className="flex w-max animate-marquee items-center gap-12 whitespace-nowrap">
             {[...INDUSTRIES, ...INDUSTRIES].map((label, i) => (
               <span
                 key={`${label}-${i}`}
-                className="flex items-center gap-3 text-sm font-medium uppercase tracking-[0.2em] text-ink/40"
+                className="flex items-center gap-3 text-sm font-medium uppercase tracking-[0.2em] text-mist/40"
               >
                 {label}
-                <span className="h-1 w-1 rounded-full bg-primary/50" />
+                <span className="h-1 w-1 rounded-full bg-sky-brand/60" />
               </span>
             ))}
           </div>
