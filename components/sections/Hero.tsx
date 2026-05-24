@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Building2, Sparkles } from "lucide-react";
-import { companies, heroStats, site } from "@/lib/content";
+import { heroStats, site } from "@/lib/content";
 import { Portrait } from "@/components/ui/Portrait";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 
@@ -154,24 +154,6 @@ export function Hero() {
               className="relative shadow-card-hover"
             />
           </div>
-
-          <EcosystemOrbit />
-
-          {/* Floating credential card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.7 }}
-            className="absolute -bottom-6 -left-6 hidden glass-light rounded-2xl p-4 shadow-card sm:block"
-          >
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">
-              Ecosystem
-            </p>
-            <p className="mt-1 font-display text-lg font-semibold text-navy">
-              {companies.length} Companies
-            </p>
-            <p className="text-xs text-ink/55">across 6 industries</p>
-          </motion.div>
         </motion.div>
       </div>
 
@@ -204,40 +186,3 @@ const INDUSTRIES = [
   "Leadership",
   "Innovation",
 ];
-
-function EcosystemOrbit() {
-  return (
-    <div
-      aria-hidden
-      className="pointer-events-none absolute -right-4 -top-6 hidden h-32 w-32 sm:block"
-    >
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-        className="relative h-full w-full"
-      >
-        {companies.slice(0, 5).map((c, i) => {
-          const angle = (i / 5) * Math.PI * 2;
-          const r = 56;
-          const x = Math.cos(angle) * r;
-          const y = Math.sin(angle) * r;
-          const Icon = c.icon;
-          return (
-            <motion.span
-              key={c.name}
-              style={{ left: `calc(50% + ${x}px)`, top: `calc(50% + ${y}px)` }}
-              animate={{ rotate: -360 }}
-              transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-              className="absolute flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl border border-white/15 bg-navy/80 shadow-glow backdrop-blur"
-            >
-              <Icon className="h-4 w-4 text-sky-brand" />
-            </motion.span>
-          );
-        })}
-        <span className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-br from-primary to-sky-brand text-xs font-bold text-white shadow-glow">
-          ENV
-        </span>
-      </motion.div>
-    </div>
-  );
-}
