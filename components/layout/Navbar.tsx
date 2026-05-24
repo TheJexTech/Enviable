@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { navItems, site, type NavItem } from "@/lib/content";
+import { navItems, type NavItem } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 function isActive(pathname: string, item: NavItem): boolean {
@@ -80,19 +80,11 @@ export function Navbar() {
         <nav className="container-px flex h-16 items-center justify-between sm:h-20">
           <Link
             href="/"
-            className="group flex items-center gap-3"
-            aria-label={`${site.name} — home`}
+            className="group flex items-center"
+            aria-label="Chukwuemeka Ituma Enviable — home"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-sky-brand text-sm font-bold text-white shadow-glow">
-              CI
-            </span>
-            <span className="hidden flex-col leading-none sm:flex">
-              <span className="font-display text-sm font-semibold text-white">
-                Chukwuemeka Ituma
-              </span>
-              <span className="text-[0.65rem] uppercase tracking-[0.2em] text-sky-brand">
-                Enviable Group
-              </span>
+            <span className="whitespace-nowrap font-sans text-[0.72rem] font-light uppercase tracking-[0.18em] text-white transition-colors group-hover:text-sky-brand sm:text-sm sm:tracking-[0.24em] lg:text-base lg:tracking-[0.3em]">
+              Chukwuemeka Ituma Enviable
             </span>
           </Link>
 

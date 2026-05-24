@@ -12,19 +12,9 @@ export function Footer() {
       <div className="container-px relative py-16">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
-            <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-sky-brand text-sm font-bold text-white">
-                CI
-              </span>
-              <div className="leading-none">
-                <p className="font-display text-base font-semibold text-white">
-                  {site.name}
-                </p>
-                <p className="text-xs uppercase tracking-[0.2em] text-sky-brand">
-                  Enviable Group
-                </p>
-              </div>
-            </div>
+            <p className="font-sans text-base font-light uppercase tracking-[0.25em] text-white">
+              Chukwuemeka Ituma Enviable
+            </p>
             <p className="mt-5 text-sm leading-relaxed text-mist/70">
               Building businesses, creating opportunities, and driving Africa
               forward through a diversified ecosystem of companies.
