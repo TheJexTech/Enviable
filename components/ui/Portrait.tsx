@@ -48,18 +48,27 @@ export function Portrait({
       {/* Recolor the photo's studio backdrop to brand blue, while a radial
           mask spares the subject in the centre so skin tones stay natural. */}
       {brandTint && (
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 mix-blend-color"
-          style={{
-            background:
-              "linear-gradient(155deg, #2563EB 0%, #1d4ed8 48%, #38BDF8 100%)",
-            WebkitMaskImage:
-              "radial-gradient(72% 60% at 50% 40%, transparent 36%, rgba(0,0,0,0.65) 64%, black 82%)",
-            maskImage:
-              "radial-gradient(72% 60% at 50% 40%, transparent 36%, rgba(0,0,0,0.65) 64%, black 82%)",
-          }}
-        />
+        <>
+          {/* Knock back the warm/orange cast by ~70% (semi-transparent fill
+              keeps the blend intact instead of using opacity). */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 mix-blend-saturation"
+            style={{ background: "rgba(128,128,128,0.7)" }}
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 mix-blend-color"
+            style={{
+              background:
+                "linear-gradient(155deg, #2563EB 0%, #1d4ed8 48%, #38BDF8 100%)",
+              WebkitMaskImage:
+                "radial-gradient(72% 60% at 50% 40%, transparent 36%, rgba(0,0,0,0.65) 64%, black 82%)",
+              maskImage:
+                "radial-gradient(72% 60% at 50% 40%, transparent 36%, rgba(0,0,0,0.65) 64%, black 82%)",
+            }}
+          />
+        </>
       )}
 
       {/* Readability gradient (kept subtle so true photo colors show) */}
