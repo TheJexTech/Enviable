@@ -129,13 +129,13 @@ export function Hero() {
           className="relative mx-auto w-full max-w-md lg:max-w-none"
         >
           <div className="relative">
-            {/* Halo that blends the photo's warm backdrop into the brand blue */}
+            {/* Brand-blue halo framing the portrait */}
             <div
               aria-hidden
               className="absolute -inset-6 rounded-[2.75rem] opacity-70 blur-3xl"
               style={{
                 background:
-                  "linear-gradient(150deg, rgba(198,122,38,0.55) 0%, rgba(190,110,40,0.30) 28%, rgba(37,99,235,0.28) 62%, rgba(56,189,248,0.30) 100%)",
+                  "linear-gradient(150deg, rgba(37,99,235,0.50) 0%, rgba(29,78,216,0.34) 45%, rgba(56,189,248,0.48) 100%)",
               }}
             />
             <div
@@ -143,11 +143,12 @@ export function Hero() {
               className="absolute -inset-3 rounded-[2.5rem] opacity-70 blur-2xl"
               style={{
                 background:
-                  "radial-gradient(68% 55% at 50% 82%, rgba(198,122,38,0.55), transparent 75%)",
+                  "radial-gradient(68% 55% at 50% 82%, rgba(37,99,235,0.45), transparent 75%)",
               }}
             />
             <Portrait
               priority
+              brandTint
               src="/images/ituma-portrait-hero.jpg"
               objectPosition="50% 28%"
               className="relative shadow-card-hover"
