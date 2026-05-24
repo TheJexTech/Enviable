@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Building2, Sparkles } from "lucide-react";
 import { companies, heroStats, site } from "@/lib/content";
@@ -88,14 +89,14 @@ export function Hero() {
             variants={item}
             className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
-            <a href="#journey" className="btn-primary group">
-              Explore Journey
+            <Link href="/about" className="btn-primary group">
+              Discover the Story
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a href="#ecosystem" className="btn-ghost group">
+            </Link>
+            <Link href="/business-investments" className="btn-ghost group">
               <Building2 className="h-4 w-4" />
-              View Companies
-            </a>
+              Business &amp; Investments
+            </Link>
           </motion.div>
 
           {/* Stats */}

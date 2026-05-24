@@ -1,5 +1,6 @@
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { companies, navLinks, site, socials } from "@/lib/content";
+import { companies, navItems, site, socials } from "@/lib/content";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -31,11 +32,19 @@ export function Footer() {
           </div>
 
           <FooterCol title="Navigate">
-            {navLinks.map((l) => (
-              <FooterLink key={l.href} href={l.href}>
-                {l.label}
-              </FooterLink>
-            ))}
+            {navItems.flatMap((item) =>
+              item.children
+                ? item.children.map((c) => (
+                    <FooterLink key={c.href + c.label} href={c.href}>
+                      {c.label}
+                    </FooterLink>
+                  ))
+                : [
+                    <FooterLink key={item.href} href={item.href}>
+                      {item.label}
+                    </FooterLink>,
+                  ],
+            )}
           </FooterCol>
 
           <FooterCol title="Companies">
@@ -66,9 +75,9 @@ export function Footer() {
             <a href="#" className="transition-colors hover:text-white">
               Terms of Service
             </a>
-            <a href="#contact" className="transition-colors hover:text-white">
+            <Link href="/contact" className="transition-colors hover:text-white">
               Contact
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -102,17 +111,21 @@ function FooterLink({
   children: React.ReactNode;
   external?: boolean;
 }) {
+  const className =
+    "group inline-flex items-center gap-1 text-sm text-mist/70 transition-colors hover:text-white";
+
   return (
     <li>
-      <a
-        href={href}
-        className="group inline-flex items-center gap-1 text-sm text-mist/70 transition-colors hover:text-white"
-      >
-        {children}
-        {external && (
+      {external ? (
+        <a href={href} className={className}>
+          {children}
           <ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-100" />
-        )}
-      </a>
+        </a>
+      ) : (
+        <Link href={href} className={className}>
+          {children}
+        </Link>
+      )}
     </li>
   );
 }

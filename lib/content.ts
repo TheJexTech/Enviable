@@ -41,15 +41,39 @@ export const site = {
   location: "Lagos, Nigeria",
 };
 
-export const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Journey", href: "#journey" },
-  { label: "Ecosystem", href: "#ecosystem" },
-  { label: "Impact", href: "#impact" },
-  { label: "Philosophy", href: "#philosophy" },
-  { label: "Media", href: "#media" },
-  { label: "Contact", href: "#contact" },
-] as const;
+export type NavChild = {
+  label: string;
+  href: string;
+  description: string;
+};
+
+export type NavItem = {
+  label: string;
+  href: string;
+  children?: NavChild[];
+};
+
+export const navItems: NavItem[] = [
+  { label: "Home", href: "/" },
+  {
+    label: "About",
+    href: "/about",
+    children: [
+      {
+        label: "About Enviable",
+        href: "/about",
+        description: "The founder's story, journey, and philosophy.",
+      },
+      {
+        label: "Business and Investments",
+        href: "/business-investments",
+        description: "The companies and ventures across the group.",
+      },
+    ],
+  },
+  { label: "Lifestyle", href: "/lifestyle" },
+  { label: "Contact", href: "/contact" },
+];
 
 export const socials = [
   { label: "LinkedIn", href: "#", handle: "/chukwuemeka-ituma" },

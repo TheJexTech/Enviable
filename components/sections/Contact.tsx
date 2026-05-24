@@ -7,7 +7,7 @@ import { contactCategories, site, socials } from "@/lib/content";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { cn } from "@/lib/utils";
 
-export function Contact() {
+export function Contact({ showHeading = true }: { showHeading?: boolean }) {
   const [category, setCategory] = useState<string>(contactCategories[0]);
   const [sent, setSent] = useState(false);
 
@@ -22,18 +22,25 @@ export function Contact() {
       <div className="pointer-events-none absolute right-0 top-0 h-80 w-80 rounded-full bg-primary/5 blur-3xl" />
 
       <div className="container-px relative">
-        <SectionHeading
-          eyebrow="Contact"
-          title={
-            <>
-              Let&apos;s start a{" "}
-              <span className="text-gradient">conversation</span>
-            </>
-          }
-          description="Whether it's a partnership, media request, or speaking invitation — the office of Chukwuemeka Ituma is ready to connect."
-        />
+        {showHeading && (
+          <SectionHeading
+            eyebrow="Contact"
+            title={
+              <>
+                Let&apos;s start a{" "}
+                <span className="text-gradient">conversation</span>
+              </>
+            }
+            description="Whether it's a partnership, media request, or speaking invitation — the office of Chukwuemeka Ituma is ready to connect."
+          />
+        )}
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+        <div
+          className={cn(
+            "grid gap-8 lg:grid-cols-[0.85fr_1.15fr]",
+            showHeading && "mt-16",
+          )}
+        >
           {/* Left: details */}
           <div className="flex flex-col gap-6">
             <div className="rounded-3xl border border-mist bg-white p-8 shadow-soft">
