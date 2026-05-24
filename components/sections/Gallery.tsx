@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { Expand, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { galleryCategories, galleryItems, type GalleryItem } from "@/lib/content";
@@ -90,11 +91,22 @@ export function Gallery() {
                   spanClass[item.span],
                 )}
               >
-                <VisualPlaceholder
-                  seed={item.id}
-                  label={undefined}
-                  className="transition-transform duration-700 group-hover:scale-110"
-                />
+                {item.src ? (
+                  <Image
+                    src={item.src}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    style={{ objectPosition: item.objectPosition ?? "center" }}
+                  />
+                ) : (
+                  <VisualPlaceholder
+                    seed={item.id}
+                    label={undefined}
+                    className="transition-transform duration-700 group-hover:scale-110"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/10 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-4 text-left">
                   <div>
@@ -158,12 +170,31 @@ export function Gallery() {
               onClick={(e) => e.stopPropagation()}
               className="w-full max-w-3xl overflow-hidden rounded-3xl border border-white/10 shadow-card-hover"
             >
-              <div className="aspect-[16/10]">
-                <VisualPlaceholder
-                  seed={activeItem.id}
-                  label={activeItem.title}
-                  caption={activeItem.category}
-                />
+              <div
+                className={cn(
+                  "relative bg-navy",
+                  activeItem.src
+                    ? activeItem.span === "tall"
+                      ? "aspect-[4/5]"
+                      : "aspect-[16/10]"
+                    : "aspect-[16/10]",
+                )}
+              >
+                {activeItem.src ? (
+                  <Image
+                    src={activeItem.src}
+                    alt={activeItem.title}
+                    fill
+                    sizes="(max-width: 768px) 92vw, 768px"
+                    className="object-contain"
+                  />
+                ) : (
+                  <VisualPlaceholder
+                    seed={activeItem.id}
+                    label={activeItem.title}
+                    caption={activeItem.category}
+                  />
+                )}
               </div>
               <div className="flex items-center justify-between bg-navy p-5">
                 <div>

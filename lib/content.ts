@@ -448,28 +448,51 @@ export type GalleryItem = {
   category: string;
   title: string;
   span: "tall" | "wide" | "square";
+  src?: string;
+  objectPosition?: string;
 };
 
 export const galleryCategories = [
   "All",
   "Corporate Events",
   "Public Appearances",
+  "Leadership Moments",
   "Business Operations",
   "Community Projects",
-  "Leadership Moments",
 ] as const;
 
 export const galleryItems: GalleryItem[] = [
-  { id: 1, category: "Corporate Events", title: "Annual Leadership Forum", span: "tall" },
-  { id: 2, category: "Public Appearances", title: "Keynote Address", span: "wide" },
-  { id: 3, category: "Business Operations", title: "Fleet Operations Review", span: "square" },
-  { id: 4, category: "Community Projects", title: "Empowerment Initiative", span: "square" },
-  { id: 5, category: "Leadership Moments", title: "Strategy Session", span: "tall" },
-  { id: 6, category: "Industry Engagements", title: "Sector Roundtable", span: "wide" },
+  {
+    id: 1,
+    category: "Corporate Events",
+    title: "Enviable Group Annual Staff Training & Awards Summit 2025",
+    span: "tall",
+    src: "/images/gallery-summit-speech.jpg",
+    objectPosition: "50% 30%",
+  },
+  {
+    id: 2,
+    category: "Leadership Moments",
+    title: "Celebrating milestones with the team",
+    span: "wide",
+    src: "/images/gallery-team-celebration.jpg",
+    objectPosition: "50% 35%",
+  },
+  {
+    id: 3,
+    category: "Public Appearances",
+    title: "Delivering the keynote address",
+    span: "tall",
+    src: "/images/gallery-podium-address.jpg",
+    objectPosition: "50% 20%",
+  },
+  { id: 4, category: "Business Operations", title: "Fleet Operations Review", span: "square" },
+  { id: 5, category: "Community Projects", title: "Empowerment Initiative", span: "square" },
+  { id: 6, category: "Leadership Moments", title: "Strategy Session", span: "tall" },
   { id: 7, category: "Corporate Events", title: "Group Milestone Celebration", span: "square" },
   { id: 8, category: "Public Appearances", title: "Panel Discussion", span: "square" },
-  { id: 9, category: "Business Operations", title: "Site Inspection", span: "tall" },
-  { id: 10, category: "Community Projects", title: "Youth Mentorship", span: "wide" },
+  { id: 9, category: "Business Operations", title: "Site Inspection", span: "wide" },
+  { id: 10, category: "Community Projects", title: "Youth Mentorship", span: "square" },
 ];
 
 /* -------------------------------------------------------------------------- */

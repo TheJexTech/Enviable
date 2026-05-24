@@ -1,51 +1,67 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
+type PortraitProps = {
+  src?: string;
+  alt?: string;
+  name?: string;
+  role?: string;
+  priority?: boolean;
+  showLabel?: boolean;
+  objectPosition?: string;
+  className?: string;
+};
+
 /**
- * Premium portrait placeholder. Swap the inner block for a real <Image>
- * when professional photography is available — the framing/ratio stays.
+ * Premium portrait frame rendering professional photography of
+ * Chukwuemeka Ituma with an executive label treatment.
  */
-export function Portrait({ className }: { className?: string }) {
+export function Portrait({
+  src = "/images/ituma-portrait-primary.jpg",
+  alt = "Chukwuemeka Ituma, Founder and Chairman of Enviable Group",
+  name = "Chukwuemeka Ituma",
+  role = "Founder & Chairman",
+  priority = false,
+  showLabel = true,
+  objectPosition = "50% 18%",
+  className,
+}: PortraitProps) {
   return (
     <div
       className={cn(
-        "relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]",
+        "relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-navy",
         className,
       )}
-      role="img"
-      aria-label="Portrait of Chukwuemeka Ituma, Founder and Chairman of Enviable Group"
     >
-      {/* Base gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy via-primary-900 to-primary-700" />
-      {/* Glow accents */}
-      <div className="absolute -left-10 top-10 h-48 w-48 rounded-full bg-sky-brand/30 blur-3xl" />
-      <div className="absolute -right-8 bottom-0 h-56 w-56 rounded-full bg-primary/40 blur-3xl" />
-      {/* Grid texture */}
-      <div className="absolute inset-0 bg-grid-navy bg-[size:32px_32px] opacity-30" />
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority={priority}
+        sizes="(max-width: 1024px) 90vw, 45vw"
+        className="object-cover"
+        style={{ objectPosition }}
+      />
 
-      {/* Silhouette monogram */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-        <div className="flex h-28 w-28 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-md">
-          <span className="font-display text-4xl font-bold text-white">CI</span>
+      {/* Brand tint + readability gradient */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/10 to-navy/15" />
+      <div className="pointer-events-none absolute inset-0 mix-blend-overlay bg-gradient-to-tr from-primary/30 via-transparent to-sky-brand/20" />
+
+      {showLabel && (
+        <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
+          <div>
+            <p className="font-display text-lg font-semibold text-white drop-shadow">
+              {name}
+            </p>
+            <p className="text-sm text-mist/80">{role}</p>
+          </div>
+          <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-sky-brand backdrop-blur">
+            Enviable Group
+          </span>
         </div>
-        <div className="text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-brand">
-            Portrait
-          </p>
-          <p className="mt-1 text-[0.7rem] text-white/50">
-            Professional photo placeholder
-          </p>
-        </div>
-      </div>
+      )}
 
-      {/* Bottom label bar */}
-      <div className="absolute inset-x-0 bottom-0 border-t border-white/10 bg-navy/40 p-5 backdrop-blur-md">
-        <p className="font-display text-lg font-semibold text-white">
-          Chukwuemeka Ituma
-        </p>
-        <p className="text-sm text-mist/70">Founder &amp; Chairman</p>
-      </div>
-
-      <div className="pointer-events-none absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-white/10" />
+      <div className="pointer-events-none absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-white/15" />
     </div>
   );
 }

@@ -100,6 +100,7 @@ const jsonLd = {
   name: site.name,
   jobTitle: "Founder & Chairman",
   url: site.url,
+  image: `${site.url}/images/ituma-portrait-primary.jpg`,
   worksFor: {
     "@type": "Organization",
     name: "Enviable Group of Companies",

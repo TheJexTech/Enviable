@@ -129,7 +129,7 @@ export function Hero() {
         >
           <div className="relative">
             <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-tr from-primary/40 via-transparent to-sky-brand/30 blur-2xl" />
-            <Portrait className="relative shadow-card-hover" />
+            <Portrait priority className="relative shadow-card-hover" />
           </div>
 
           <EcosystemOrbit />
