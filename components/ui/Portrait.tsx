@@ -43,9 +43,8 @@ export function Portrait({
         style={{ objectPosition }}
       />
 
-      {/* Brand tint + readability gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/10 to-navy/15" />
-      <div className="pointer-events-none absolute inset-0 mix-blend-overlay bg-gradient-to-tr from-primary/30 via-transparent to-sky-brand/20" />
+      {/* Readability gradient (kept subtle so true photo colors show) */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/75 via-transparent to-transparent" />
 
       {showLabel && (
         <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
