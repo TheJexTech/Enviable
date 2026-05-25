@@ -27,7 +27,7 @@ const item = {
 };
 
 const portraitMask =
-  "linear-gradient(to bottom, #000 56%, transparent 92%)";
+  "radial-gradient(82% 84% at 50% 38%, #000 46%, rgba(0,0,0,0.45) 74%, transparent 100%)";
 
 export function Hero() {
   return (
@@ -153,11 +153,6 @@ export function Hero() {
                 maskImage:
                   "radial-gradient(70% 58% at 50% 36%, transparent 30%, rgba(0,0,0,0.7) 60%, black 80%)",
               }}
-            />
-            {/* Blend the lower edge into the page background */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy/60 to-transparent"
             />
           </div>
         </motion.div>

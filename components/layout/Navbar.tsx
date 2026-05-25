@@ -151,7 +151,7 @@ export function Navbar() {
                         role="menu"
                         className="absolute left-0 top-full w-72 pt-3"
                       >
-                        <div className="glass overflow-hidden rounded-2xl p-2 shadow-card-hover">
+                        <div className="overflow-hidden rounded-2xl border border-white/10 bg-navy/95 p-2 shadow-card-hover backdrop-blur-xl">
                           {item.children.map((child) => (
                             <Link
                               key={child.href + child.label}
