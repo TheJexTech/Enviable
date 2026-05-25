@@ -27,7 +27,7 @@ const item = {
 };
 
 const portraitMask =
-  "radial-gradient(82% 84% at 50% 38%, #000 46%, rgba(0,0,0,0.45) 74%, transparent 100%)";
+  "radial-gradient(closest-side at 50% 38%, #000 0%, #000 50%, rgba(0,0,0,0.32) 80%, transparent 100%)";
 
 export function Hero() {
   return (
